@@ -1,0 +1,107 @@
+page-home {
+  .card1 {
+    margin-top: 15%;
+    padding: 3%;
+  }
+  .card2 {
+    margin-top: 5%;
+    padding: 3%;
+  }
+  .orders {
+    color: white;
+    padding: 5px;
+    font-size: 15px;
+  }
+  .orders1 {
+    background: linear-gradient(to bottom, color($colors, white-a) 70%, color($colors, primary) 20%);
+    border: 1px solid white;
+    padding: 2px;
+    text-align: center;
+    height: 100px;
+    border-radius: 8px;
+  }
+  .orders2 {
+    background: linear-gradient(to bottom, color($colors, white-a) 70%, color($colors, status) 20%);
+    border: 1px solid white;
+    padding: 2px;
+    text-align: center;
+    height: 100px;
+    border-radius: 8px;
+  }
+  .orders3 {
+    background: linear-gradient(to bottom, color($colors, white-a) 70%, color($colors, violet1) 20%);
+    border: 1px solid white;
+    padding: 2px;
+    text-align: center;
+    height: 100px;
+    border-radius: 8px;
+  }
+  .orders4 {
+    background: linear-gradient(to bottom, color($colors, white-a) 70%, color($colors, danger) 20%);
+    border: 1px solid white;
+    padding: 2px;
+    text-align: center;
+    height: 100px;
+    border-radius: 8px;
+  }
+  
+  .icon-style1 {
+    padding-top: 12px;
+    padding-bottom: 6px;
+    color: map-get($colors, primary)
+  }
+  .icon-style2 {
+    padding-top: 12px;
+    padding-bottom: 6px;
+    color: map-get($colors, status)
+  }
+  .slide-a {
+    height: 170px;
+    width: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .slide-b {
+    height: 250px;
+    width: auto;
+  }
+  .image-a {
+    border: 1px dotted white;
+    width: 370px;
+    height: 150px;
+    margin-top: -200%;
+  }
+  .content {
+    background: #e3e3e3;
+  }
+  .icon-style3 {
+    padding-top: 12px;
+    padding-bottom: 6px;
+    color: map-get($colors, violet1)
+  }
+  .icon-style4 {
+    padding-top: 12px;
+    padding-bottom: 6px;
+    color: map-get($colors, danger)
+  }
+  .div2 {
+    margin-top: 15px;
+  }
+  ion-scroll[scrollX] {
+    white-space: nowrap;
+    height: 150px;
+    overflow: hidden;
+    margin: 15px;
+    .scroll-item {
+      display: inline-block;
+    }
+    .slide-image {
+      width: 150px;
+      height: 100px;
+    }
+  }
+  /* Hide ion-content scrollbar */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}

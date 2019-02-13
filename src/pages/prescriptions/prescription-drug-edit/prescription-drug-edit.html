@@ -1,0 +1,20 @@
+<ion-header>
+  <header-main [title]='title'></header-main>
+</ion-header>
+
+<ion-content>
+  <div>
+    <prescription-drug-form [prescriptionItem]='prescriptionItem'></prescription-drug-form>
+  </div>
+</ion-content>
+
+<ion-footer no-border>
+  <ion-row>
+    <ion-col col-6>
+      <button ion-button (click)="cancel()" class="button-footer">Cancel</button>
+    </ion-col>
+    <ion-col col-6>
+      <button ion-button *ngIf="appointment|async;let appointment" (click)="updateItem(appointment)" class="button-footer">Update</button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

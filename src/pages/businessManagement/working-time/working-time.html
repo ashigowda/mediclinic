@@ -1,0 +1,84 @@
+<ion-header>
+  <header-main [title]='title'></header-main>
+</ion-header>
+
+<ion-content>
+
+  <ion-segment [(ngModel)]="tabIndex">
+    <ion-segment-button value="0">
+      Working Hours
+    </ion-segment-button>
+    <ion-segment-button value="1">
+      Leaves
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="tabIndex">
+
+    <div *ngSwitchCase="0" lines>
+      <ion-row class="header2" no-padding no-margin>
+        <ion-col col-3 no-padding no-margin>Day</ion-col>
+        <ion-col col-3 no-margin no-padding>Session</ion-col>
+        <ion-col col-3 no-margin no-padding>Start</ion-col>
+        <ion-col col-3 no-margin no-padding>End </ion-col>
+      </ion-row>
+
+      <ion-list no-padding no-margin>
+        <ion-item-sliding *ngFor="let item of workingHoursList;let index=index; let odd=odd; let even=even;" class="textCenter">
+          <ion-item [ngClass]="{ odd: odd, even: even } " no-lines no-padding no-margin>
+            <ion-row no-padding no-margin>
+              <ion-col col-3 text-capitalize> {{item.dayOfWeek}}</ion-col>
+              <ion-col col-3 no-margin no-padding text-capitalize> {{item.session}}</ion-col>
+              <ion-col col-3 no-margin no-padding> {{item.opens}}</ion-col>
+              <ion-col col-3 no-margin no-padding> {{item.closes}}</ion-col>
+            </ion-row>
+          </ion-item>
+
+          <ion-item-options>
+            <button text-wrap ion-button (click)="edit(item,index)" class="border-a">
+              <ion-icon name="create" class="icon-small white"></ion-icon>
+              EDIT
+            </button>
+            <button text-wrap ion-button (click)="delete(index)" class="border-a">
+              <ion-icon name="trash" class="icon-small white"></ion-icon>
+              DELETE
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+
+      <add-circle-button style="position:fixed" (click)="add()" class="button-add"></add-circle-button>
+    </div>
+
+    <div *ngSwitchCase="1" lines>
+      <ion-row class="header2" no-padding no-margin>
+        <ion-col col-6 no-margin no-padding>Start Date</ion-col>
+        <ion-col col-6 no-margin no-padding>End Date</ion-col>
+      </ion-row>
+      <ion-list no-padding no-margin lines *ngFor="let date of startDates;let index = index">
+        <ion-item-sliding class="textCenter" [ngClass]="{odd : odd, even:even}">
+          <ion-item lines no-padding no-margin>
+            <ion-row no-padding no-margin>
+              <ion-col col-6 no-margin no-padding>{{date.startDate | date: 'dd/MM/yyyy'}}</ion-col>
+              <ion-col col-6 no-margin no-padding>{{date.endDate | date: 'dd/MM/yyyy'}}</ion-col>
+            </ion-row>
+          </ion-item>
+
+          <ion-item-options>
+            <button text-wrap ion-button (click)="editLeave(date,index)" class="border-a">
+              <ion-icon name="create" class="icon-small white"></ion-icon>
+              EDIT
+            </button>
+            <button text-wrap ion-button (click)="deleteLeave(index)" class="border-a">
+              <ion-icon name="trash" class="icon-small white"></ion-icon>
+              DELETE
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+
+      <add-circle-button style="position:fixed" (click)="leave()" class="button-add"></add-circle-button>
+    </div>
+  </div>
+
+</ion-content>

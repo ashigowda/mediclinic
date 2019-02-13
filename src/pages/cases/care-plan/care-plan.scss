@@ -1,0 +1,116 @@
+page-care-plan {
+  $color1: #41C7DB;
+  $color2: #FF6666;
+  $color3: #663399;
+  $color4:#0066FF;
+
+  .div-a {
+    background: lighten($color1, 25%) !important;
+    font-size: 18px;
+    border-bottom: 1px solid gray;
+    height: 60px;
+  }
+  .div-b {
+    background: lighten($color2, 25%) !important;
+    font-size: 15px;
+    border-bottom: 1px solid gray;
+    height: 55px;
+  }
+  .div-c {
+    background: white !important;
+    margin: 10px;
+    border-radius: 10px;
+  }
+  .item-a{
+    background: lighten($color4, 45%) !important;
+  }
+  .content {
+    background-color: map-get($colors, light)
+  }
+  .item-md.item-block .item-inner {
+    border: 0px;
+  }
+  .label {
+    font-weight: normal;
+    margin: 0px !important;
+  }
+  .since {
+    color: #333366;
+    font-size: 13px;
+  }
+  .col {
+    padding: 0px;
+  }
+  .icon1 {
+    color: gray;
+  }
+  .status1 {
+    background-color: #009900;
+    color: map-get($colors, white-a);
+  }
+  .segment-md .segment-button.activated,
+  .segment-md .segment-button.segment-activated {
+    color: white;
+    opacity: 1;
+    background: map-get($colors, primary);
+  }
+  .segment-md {
+  //   margin: 10px;
+  }
+  .segment-ios .segment-button.activated,
+  .segment-ios .segment-button.segment-activated {
+    color: white;
+    opacity: 1;
+    background: map-get($colors, primary);
+  }
+  .segment-ios {
+    //  margin: 10px;
+  }
+  ion-segment {
+    // width: calc(100% - 4px) !important;
+  }
+  .segment-button {
+    border: 1px solid map-get($colors, primary);
+    border-bottom: 1px solid map-get($colors, primary) !important;
+  }
+  .segment-button:first-of-type {
+    border-radius: 10px 0px 0px 10px;
+  }
+  .segment-button:last-of-type {
+    border-radius: 0px 10px 10px 0px;
+  }
+  .label-a {
+    color: red;
+    font-size: 14px;
+  }
+  .label-b {
+    color: black;
+    font-size: 13px;
+  }
+  .border-a {
+    border: 1px solid map-get($colors, white-a) !important;
+    width: 60px;
+  }
+  .div1 {
+    color: gray;
+    border-radius: 20px;
+    border: 1px solid map-get($colors, primary);
+    text-align: center; 
+  }
+}
+
+ion-app.ios[padding-right] {
+  padding-right: 8px !important;
+}
+
+ion-app.md[padding-right] {
+  padding-right: 8px !important;
+}
+
+ion-app [padding-top] {
+  padding-top: 8px !important;
+}
+
+ion-app.md [padding] {
+  padding: 8px;
+}

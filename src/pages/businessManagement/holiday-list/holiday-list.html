@@ -1,0 +1,38 @@
+<ion-header>
+  <header-main [title]='title'></header-main>
+</ion-header>
+
+<ion-content>
+
+  <ion-row class="header2" no-padding no-margin>
+    <ion-col col-6 no-margin no-padding>Date</ion-col>
+    <ion-col col-6 no-margin no-padding>Holiday Name </ion-col>
+  </ion-row>
+
+  <ion-list no-padding no-margin lines *ngFor="let holiday of holidays;let index = index;let odd = odd; let even = even">
+    <ion-item-sliding class="textCenter" [ngClass]="{odd : odd, even:even}">
+      <ion-item lines no-padding no-margin>
+        <ion-row no-padding no-margin>
+          <ion-col col-6 no-margin no-padding>{{holiday.date | date: 'dd/MM/yyyy'}} </ion-col>
+          <ion-col col-6 no-margin no-padding>{{holiday.name}}</ion-col>
+        </ion-row>
+      </ion-item>
+
+      <ion-item-options>
+        <button text-wrap ion-button (click)="edit(holiday,index)" class="border-a">
+          <ion-icon name="create" class="icon-small white"></ion-icon>
+          EDIT
+        </button>
+        <button text-wrap ion-button (click)="delete(index)" class="border-a">
+          <ion-icon name="trash" class="icon-small white"></ion-icon>
+          DELETE
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+
+  <div class="button-add" (click)="add()" bottom right>
+    <ion-icon name="add" class="icon-add" id="button"></ion-icon>
+  </div>
+</ion-content>

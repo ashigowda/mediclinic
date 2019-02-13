@@ -1,0 +1,39 @@
+<ion-header>
+        <header-main [title]="title"></header-main>
+      </ion-header>
+      
+      <ion-content>
+        <ion-label class="small"> Goal:</ion-label>
+        <ion-item no-lines no-margin no-padding>
+          <ion-select interface="action-sheet">
+            <ion-option value="fever">Change Life Style</ion-option>
+            <ion-option value="fever">Reduce the Temperature</ion-option>
+            <ion-option value="fever">Change Food Habit</ion-option>
+          </ion-select>
+        </ion-item>
+      
+        <ion-label class="small"> Problem:</ion-label>
+        <ion-textarea [(ngModel)]="description" placeholder="enter description"></ion-textarea>
+      
+        <ion-label class="small"> Priority:</ion-label>
+        <ion-item no-lines no-margin no-padding>
+          <ion-select interface="action-sheet">
+            <ion-option value="fever">High</ion-option>
+            <ion-option value="fever">Medium</ion-option>
+            <ion-option value="fever">Low</ion-option>
+          </ion-select>
+        </ion-item>
+      
+      </ion-content>
+      
+      <ion-footer no-border>
+        <ion-row>
+          <ion-col>
+            <button ion-button class="button-footer" (click)="cancel()" no-padding no-margin> Cancel </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button class="button-footer" (click)="add()" no-padding no-margin> Add </button>
+          </ion-col>
+        </ion-row>
+      </ion-footer>
+      

@@ -1,0 +1,63 @@
+<ion-header>
+  <header-main [title]='title'></header-main>
+</ion-header>
+
+<ion-content>
+
+  <ion-row margin>
+    <ion-col col-3 class="dark medium">Day:</ion-col>
+    <ion-col col-2>:</ion-col>
+    <ion-col col-4 no-padding no-margin>
+      <ion-item no-lines no-padding no-margin>
+        <ion-select [(ngModel)]="workingHour.dayOfWeek" interface="action-sheet">
+          <ion-option value="Mon">Mon</ion-option>
+          <ion-option value="Tue">Tue</ion-option>
+          <ion-option value="Wed">Wed</ion-option>
+          <ion-option value="Thu">Thu</ion-option>
+          <ion-option value="Fri">Fri</ion-option>
+          <ion-option value="Sat">Sat</ion-option>
+          <ion-option value="Sun">Sun</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <ion-row margin>
+    <ion-col col-3 class="dark medium">Session</ion-col>
+    <ion-col col-2>:</ion-col>
+    <ion-col col-4 no-margin no-padding>
+      <ion-item no-lines no-padding no-margin>
+        <ion-select [(ngModel)]="workingHour.session" interface="action-sheet">
+          <ion-option value="morning">Morning</ion-option>
+          <ion-option value="evening">Evening</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <ion-row margin>
+    <ion-col col-3 class="dark medium">Open</ion-col>
+    <ion-col col-2>:</ion-col>
+    <ion-col no-margin no-padding col-4>
+      <ion-item no-padding no-lines>
+        <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm" placeholder="08:00" [(ngModel)]="workingHour.opens"></ion-datetime>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <ion-row margin>
+    <ion-col col-3 class="dark medium"> Close</ion-col>
+    <ion-col col-2>:</ion-col>
+    <ion-col no-margin no-padding col-4>
+      <ion-item no-padding no-lines>
+        <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm" placeholder="13:00" [(ngModel)]="workingHour.closes"></ion-datetime>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <ion-footer no-border>
+    <button ion-button (click)="update()" class="button-half">UPDATE</button>
+    <button ion-button (click)="cancel()" class="button-half">CANCEL</button>
+  </ion-footer>
+
+</ion-content>

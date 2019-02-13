@@ -1,0 +1,362 @@
+<ion-header>
+  <header-main [title]="title"></header-main>
+</ion-header>
+
+<ion-content>
+  <ion-item class=" devider" no-margin no-padding>20/01/2018</ion-item>
+  <div style="background:white;border-radius:15px" margin>
+    <ion-item no-margin padding no-lines>
+      <ion-row>
+        <ion-col class="primary medium" text-capitalize>
+          Aryan
+          <i class="age" no-padding no-margin>
+            (38 years)</i>
+        </ion-col>
+
+        <ion-col class="phoneIcon">
+          <div float-right class="small">
+            <ion-icon name="call" class="phone"></ion-icon> 9632474636
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row no-margin>
+        <ion-col class="small" style="color:#990000"> Male</ion-col>
+
+        <ion-col>
+          <div class="emailIcon" float-right>
+            <ion-icon name="mail" class="email"></ion-icon> arya@gmail.com
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="marginBottom" no-margin>
+        <ion-col style="font-size:12px;color:#666666">
+          #123,Kanaka Layout,Bangalore-70
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="since">
+          since 1d 10hr
+        </ion-col>
+        <ion-col>
+          <b class="status border" float-right>open</b>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </div>
+
+  <ion-segment [(ngModel)]="tabIndex">
+    <ion-segment-button value="0">
+      Patient's Details
+    </ion-segment-button>
+    <ion-segment-button value="1">
+      Problems & Goals
+    </ion-segment-button>
+    <ion-segment-button value="2">
+      Tasks
+    </ion-segment-button>
+    <ion-segment-button value="3">
+      Chats
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="tabIndex">
+    <div *ngSwitchCase="0" style="border:1px solid gray;background-color:white" margin padding>
+      <ion-label class="label-a">Medical Conditions</ion-label>
+      <ion-label class="label-b">High BP - 140/90</ion-label>
+      <ion-label class="label-b" padding-bottom>Blood Sugar - 250mg/dl</ion-label>
+
+      <ion-label class="label-a">Allergies and Reactions</ion-label>
+      <ion-label class="label-b" padding-bottom>Penicilin - severe skin rash</ion-label>
+
+      <ion-label class="label-a">Medications</ion-label>
+      <ion-label class="label-b">Bumex (2times a day before food)</ion-label>
+      <ion-label class="label-b" padding-bottom>Metformin (2times a day before food)</ion-label>
+
+      <ion-label class="label-a">Habits</ion-label>
+      <ion-label class="label-b">Smoking since 20/01/2015</ion-label>
+      <ion-label class="label-b" padding-bottom>Drinks since 20/01/2014</ion-label>
+
+      <ion-label class="label-a">Height</ion-label>
+      <ion-label class="label-b" padding-bottom>160cms</ion-label>
+
+      <ion-label class="label-a">Weight</ion-label>
+      <ion-label class="label-b">70kg</ion-label>
+
+    </div>
+
+    <div *ngSwitchCase="1">
+      <ion-item class=" devider" no-margin no-padding>20/01/2018</ion-item>
+      <ion-list>
+        <ion-item-sliding>
+          <ion-item lines no-padding no-margin class="div-a">
+            <ion-row no-margin no-padding (click)="toggleDetails1(data)">
+              <ion-col no-margin no-padding col-1>
+                <ion-icon class="icon1" *ngIf="data.showDetails != true" name="arrow-dropup"></ion-icon>
+                <ion-icon class="icon1" *ngIf="data.showDetails == true" name="arrow-dropdown"></ion-icon>
+              </ion-col>
+              <ion-col col-8 no-margin no-padding>
+                <b style="color:#0000FF">Blood Sugar Control</b>
+              </ion-col>
+              <ion-col no-margin padding-right class="label">
+                <b class="status border" float-right>High</b>
+              </ion-col>
+            </ion-row>
+          </ion-item>
+          <ion-item-options>
+            <button text-wrap ion-button (click)="editProblem()" class="border-a">
+              <ion-icon name="create" class="icon-small white"></ion-icon> Edit</button>
+
+            <button text-wrap ion-button (click)="createGoal()" class="border-a">
+              <ion-icon name="md-checkbox-outline" class="icon-small white"></ion-icon> Create Goal</button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+
+      <div *ngIf="data.showDetails" (click)="toggleDetails1(data1)">
+        <ion-list>
+          <ion-item-sliding style="height:auto">
+            <ion-item lines no-padding no-margin>
+              <ion-row no-margin no-padding class="div-b">
+                <ion-col no-margin no-padding col-1>
+                  <ion-icon class="icon1" *ngIf="data.showDetails != true" name="arrow-dropup"></ion-icon>
+                  <ion-icon class="icon1" *ngIf="data.showDetails == true" name="arrow-dropdown"></ion-icon>
+                </ion-col>
+                <ion-col col-8 no-margin no-padding>
+                  <b style="color:#0066FF">Change Life Style</b>
+                </ion-col>
+                <ion-col no-margin padding-right class="label">
+                  <b class="status border" float-right>High</b>
+                </ion-col>
+              </ion-row>
+            </ion-item>
+            <ion-item-options>
+              <button text-wrap ion-button (click)="editProblem()" class="border-a">
+                <ion-icon name="create" class="icon-small white"></ion-icon> Edit</button>
+
+              <button text-wrap ion-button (click)="createTask()" class="border-a" text-wrap>
+                <ion-icon name="md-checkbox-outline" class="icon-small white"></ion-icon> Create Task</button>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </div>
+
+      <div *ngIf="data1.showDetails && data.showDetails" class="div-c">
+        <ion-row no-margin padding-left padding-top>
+          <ion-col col-8 no-margin style="color:#0099FF;font-size:16px">
+            Check Blood Sugar Level
+          </ion-col>
+
+          <ion-col no-margin padding-right>
+            <ion-label class="label">
+              <b class="status border" float-right>High</b>
+            </ion-label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row padding-left>
+          <ion-col style="color:#990033;font-size:15px" col-5>
+            Blood Sugar Level
+          </ion-col>
+          <ion-col style="color:#666666;font-size:13px;margin-left:-12px">
+            (Change the life style)
+          </ion-col>
+        </ion-row>
+        <ion-row padding-left style="color:#003399;font-size:13px">
+          Record the sugar level twice a day
+        </ion-row>
+        <ion-row padding-left style="color:#993399;font-size:12px">
+          Due:20/01/2018, 10:00
+        </ion-row>
+        <ion-row padding-left padding-bottom>
+          <ion-col style="color:#CC3366;font-size:12px" no-padding no-margin col-5>
+            25/01/2018-26/02/2018
+          </ion-col>
+          <ion-col style="color:#666666;font-size:11px;margin-left:-5px">(Monday)</ion-col>
+          <ion-col padding-right>
+            <ion-label class="label">
+              <b class="status1 border" float-right>Done</b>
+            </ion-label>
+          </ion-col>
+        </ion-row>
+      </div>
+      <add-circle-button style="position:fixed" (click)="createGoal()" class="button-add"></add-circle-button>
+    </div>
+
+    <div *ngSwitchCase="2">
+      <ion-item class=" devider" no-margin no-padding>20/01/2018</ion-item>
+      <div class="div-c" *ngFor="let i of [1,2,3]">
+        <ion-row no-margin padding-left padding-top>
+          <ion-col col-8 no-margin style="color:#0099FF;font-size:16px">
+            Check Blood Sugar Level
+          </ion-col>
+
+          <ion-col no-margin padding-right>
+            <ion-label class="label">
+              <b class="status border" float-right>High</b>
+            </ion-label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row padding-left>
+          <ion-col style="color:#990033;font-size:15px" col-5>
+            Blood Sugar Level
+          </ion-col>
+          <ion-col style="color:#666666;font-size:13px;margin-left:-12px">
+            (Change the life style)
+          </ion-col>
+        </ion-row>
+        <ion-row padding-left style="color:#003399;font-size:13px">
+          Record the sugar level twice a day
+        </ion-row>
+        <ion-row padding-left style="color:#993399;font-size:12px">
+          Due:20/01/2018, 10:00
+        </ion-row>
+        <ion-row padding-left padding-bottom>
+          <ion-col style="color:#CC3366;font-size:12px" no-padding no-margin col-5>
+            25/01/2018-26/02/2018
+          </ion-col>
+          <ion-col style="color:#666666;font-size:11px;margin-left:-5px">(Monday)</ion-col>
+          <ion-col padding-right>
+            <ion-label class="label">
+              <b class="status1 border" float-right>Done</b>
+            </ion-label>
+          </ion-col>
+        </ion-row>
+        <add-circle-button style="position:fixed" (click)="createProblem()" class="button-add"></add-circle-button>
+      </div>
+    </div>
+
+    <div *ngSwitchCase="3">
+      <div style="border-radius:10px;background-color:white" padding margin>
+        <ion-label>Share Comment, Photo or Video</ion-label>
+        <ion-row margin-top>
+          <ion-col class="div1" margin-right>
+            <ion-row>
+              <ion-col col-3 style="padding:5px">
+                <ion-icon name="chatbubbles" style="font-size:20px;color:green"></ion-icon>
+              </ion-col>
+              <ion-col>Comment</ion-col>
+            </ion-row>
+          </ion-col>
+
+          <ion-col class="div1" margin-right>
+            <ion-row>
+              <ion-col col-1 style="padding:5px">
+                <ion-icon name="photos" style="font-size:20px;color:#FF6666"></ion-icon>
+              </ion-col>
+              <ion-col>Photos</ion-col>
+            </ion-row>
+          </ion-col>
+
+          <ion-col class="div1">
+            <ion-row>
+              <ion-col col-1 style="padding:5px">
+                <ion-icon name="videocam" style="font-size:20px;color:#CC0066"></ion-icon>
+              </ion-col>
+              <ion-col>Vedio</ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </div>
+      <ion-item>
+        <ion-avatar item-start style="margin-top:-30px">
+          <img class="div-circle" src="assets/imgs/female.png" />
+        </ion-avatar>
+
+        <ion-row padding-top>
+          <ion-col col-7 no-padding no-margin>
+            <label class="medium primary" text-capitalize no-padding no-margin>
+              <b>Asha</b>
+            </label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col style="font-size:12px;color:black" text-capitalize no-padding text-wrap>
+            Thank you for review. Our policy providing the patient best experience throughout the organization.
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-2 style="font-size:12px;color:gray">Like </ion-col>
+          <ion-col col-3 style="font-size:12px;color:gray">Reply </ion-col>
+          <ion-col col-2>
+            <ion-icon name="chatbubbles" style="font-size:20px;color:#009966"></ion-icon>5
+          </ion-col>
+
+          <ion-col>
+            <ion-icon name="ios-thumbs-up" style="font-size:20px;color:#0066FF"></ion-icon>5
+          </ion-col>
+
+        </ion-row>
+      </ion-item>
+
+      <ion-item class="item-a">
+        <ion-avatar item-start style="margin-top:-30px;margin-left:30px" margin-left>
+          <img class="div-circle" src="assets/imgs/female.png" />
+        </ion-avatar>
+
+        <ion-row padding-top>
+          <ion-col col-7 no-padding no-margin>
+            <label class="medium primary" text-capitalize no-padding no-margin>
+              <b>Kiran</b>
+            </label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col style="font-size:12px;color:black" text-capitalize padding-right text-wrap>
+            Thank you for review. Our policy providing the patient best experience throughout the organization.
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-2 style="font-size:12px;color:gray">Like </ion-col>
+          <ion-col col-3 style="font-size:12px;color:gray">Reply </ion-col>
+          <ion-col col-2>
+            <ion-icon name="chatbubbles" style="font-size:20px;color:#009966"></ion-icon>5
+          </ion-col>
+
+          <ion-col>
+            <ion-icon name="ios-thumbs-up" style="font-size:20px;color:#0066FF"></ion-icon>5
+          </ion-col>
+
+        </ion-row>
+      </ion-item>
+
+      <ion-item class="item-a">
+        <ion-avatar item-start style="margin-top:-30px;margin-left:30px" margin-left>
+          <img class="div-circle" src="assets/imgs/female.png" />
+        </ion-avatar>
+
+        <ion-row padding-top>
+          <ion-col col-7 no-padding no-margin>
+            <label class="medium primary" text-capitalize no-padding no-margin>
+              <b>Asha</b>
+            </label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col style="font-size:12px;color:black" text-capitalize padding-right text-wrap>
+            Thank you for review. Our policy providing the patient best experience throughout the organization.
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-2 style="font-size:12px;color:gray">Like </ion-col>
+          <ion-col col-3 style="font-size:12px;color:gray">Reply </ion-col>
+          <ion-col col-2>
+            <ion-icon name="chatbubbles" style="font-size:20px;color:#009966"></ion-icon>5
+          </ion-col>
+
+          <ion-col>
+            <ion-icon name="ios-thumbs-up" style="font-size:20px;color:#0066FF"></ion-icon>5
+          </ion-col>
+
+        </ion-row>
+      </ion-item>
+    </div>
+  </div>
+
+</ion-content>

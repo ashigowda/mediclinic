@@ -1,0 +1,30 @@
+page-working-status {
+.col-a{
+    height:50px;
+    background: map-get($colors, primary);
+    color:white;
+    width:50px;
+    padding-top:15px;
+    text-align: center;
+}
+.col-b{
+    height:30px;
+    background:#FF9933;
+    color:white;
+    width:50px;
+    text-align: center;
+    font-size:16px;
+}
+.col-c{
+    height:30px;
+    background:#26b998;
+    color:white;
+    width:50px;
+    text-align: center;
+    font-size:16px;
+}
+.i-a{
+    font-size:12px;
+}
+}
+

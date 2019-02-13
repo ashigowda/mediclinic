@@ -1,0 +1,124 @@
+<ion-header>
+  <header-main [title]="title"></header-main>
+</ion-header>
+<ion-content class="content-lighter">
+  <header-sub [profile]="profile" [business]="business"></header-sub>
+
+  <!-- <ion-grid>
+    <ion-row text-center>
+      <ion-col class="orders" (click)="gotoPatientList(1)">
+        <div class="orderss">
+          <ion-icon name="contacts" class="icon-style"></ion-icon>
+
+          <div class="paddingtop">Patients</div>
+        </div>
+      </ion-col>
+      <ion-col class="orders" (click)="gotoPatientList(2)" >
+        <div class="orderss">
+          <ion-icon name="calendar" class="icon-style"></ion-icon>
+          <div>Appointments</div>
+        </div>
+      </ion-col>
+
+    </ion-row>
+    <ion-row>
+      <ion-col class="orders" col-6 (click)="gotoPatientList(3)">
+        <div class="orderss">
+          <ion-icon name="list-box" class="icon-style"></ion-icon>
+          <div>Prescriptions</div>
+        </div>
+
+      </ion-col>
+    </ion-row>
+
+  </ion-grid> -->
+
+  <ion-grid>
+    <ion-row text-center>
+      <ion-col class="orders" (click)="gotoPatientList(1)">
+        <div class="orders1" no-padding no-margin>
+          <ion-icon name="contacts" class="icon-style1"></ion-icon>
+          <div class="div2" no-padding no-margin>Accounts</div>
+        </div>
+      </ion-col>
+
+      <ion-col class="orders" (click)="gotoPatientList(3)">
+        <div class="orders2">
+          <ion-icon name="calendar" class="icon-style2"></ion-icon>
+          <div class="div2">Tasks</div>
+        </div>
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="orders" col-6 (click)="gotoPatientList(4)">
+        <div class="orders3">
+          <ion-icon name="list-box" class="icon-style3"></ion-icon>
+          <div class="div2">Prescriptions</div>
+        </div>
+
+      </ion-col>
+
+      <ion-col class="orders" col-6 (click)="gotoPatientList(5)">
+        <div class="orders4">
+          <ion-icon name="settings" class="icon-style4"></ion-icon>
+          <div class="div2">Settings</div>
+        </div>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+  <div *ngIf="appointmentList | async as appointmentList">
+
+    <ion-card class="card1 small" no-padding>
+      The next appointment is at {{appointmentList[0]?.appointmentTime}} with
+      <b text-capitalize>{{appointmentList[0]?.member?.firstName}} {{appointmentList[0]?.member?.lastName}}</b>
+      <ion-row>
+        <ion-col col-1>
+          <ion-icon name="notifications" class="icon-small1"></ion-icon>
+        </ion-col>
+        <ion-col> Due:
+          <b class="color"> 10min </b>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </div>
+
+  <ion-card class="card2 small" no-padding>
+    <ion-icon name="md-checkmark-circle" class="task time"></ion-icon>
+ 5 of 10 tasks completed today
+  </ion-card>
+
+  <!-- <ion-scroll scrollX="true">
+      <img  src="../../../assets/imgs/advertise.jpg " alt="display your adverts" style="border:1px dotted white;width:400px;height:150px">
+      <img  src="../../../assets/imgs/advertise.jpg" style="border:1px dotted white;width:400px;height:150px">
+      <img  src="../../../assets/imgs/advertise.jpg" style="border:1px dotted white;width:400px;height:150px">
+      <img  src="../../../assets/imgs/advertise.jpg" style="border:1px dotted white;width:400px;height:150px">
+      <img  src="../../../assets/imgs/advertise.jpg" style="border:1px dotted white;width:400px;height:150px">
+      <img  src="../../../assets/imgs/advertise.jpg" style="border:1px dotted white;width:400px;height:150px">
+  </ion-scroll> -->
+
+  <ion-slides autoplay="2000" loop="true" speed="100" pager class="slide-a">
+    <ion-slide class="slide-b">
+      <img src="../../../assets/imgs/advertise.jpg " class="image-a">
+    </ion-slide>
+    <ion-slide class="slide-b">
+      <img src="../../../assets/imgs/advertise1.jpg " class="image-a">
+    </ion-slide>
+    <ion-slide class="slide-b">
+      <img src="../../../assets/imgs/advertise2.png " class="image-a">
+    </ion-slide>
+    <ion-slide class="slide-b">
+      <img src="../../../assets/imgs/advertise3.jpeg " class="image-a">
+    </ion-slide>
+    <ion-slide class="slide-b">
+      <img src="../../../assets/imgs/advertise4.jpg " class="image-a">
+    </ion-slide>
+  </ion-slides>
+
+  <div class="button-add1" (click)="gotoChatPage()" bottom right>
+    <ion-icon name="chatboxes" class="icon-add" style="padding-left: 14px!important;padding-top: 12px!important"></ion-icon>
+  </div>
+</ion-content>

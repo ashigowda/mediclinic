@@ -1,0 +1,22 @@
+messages-list {
+  $color4: #0066FF;
+  .div1 {
+    color: gray;
+    border-radius: 20px;
+    border: 1px solid map-get($colors, primary);
+    text-align: center;
+  }
+  .col {
+    padding: 0px;
+  }
+  .item-a {
+    background: lighten($color4, 45%) !important;
+  }
+  .item-md.item-block .item-inner {
+    border: 0px;
+  }
+  .label {
+    margin: 8px 0px 8px 2%;
+  }
+
+}
